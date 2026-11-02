@@ -82,18 +82,16 @@ fun TranslationCard(languageText: String) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     // Language Dropdown Mock
-                    // Language Dropdown Mock
                     Box(
                         modifier = Modifier
-                            .width(220.dp) // <--- Add this so it stretches across the card width
+                            .width(220.dp)
                             .clip(RoundedCornerShape(8.dp))
                             .background(Color(0xFF5A5A5A))
                             .padding(horizontal = 12.dp, vertical = 8.dp)
                     ) {
                         Row(
-                            modifier = Modifier
-                                .width(220.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween, // <--- Pushes items to opposite ends
+                            modifier = Modifier.width(220.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(text = languageText, color = Color.White, fontSize = 16.sp)
@@ -121,12 +119,23 @@ fun TranslationCard(languageText: String) {
                         .weight(1f)
                         .clip(RoundedCornerShape(8.dp))
                         .background(Color(0xFF4A4A4A))
-                        .padding(12.dp)
+                        .padding(4.dp)
                 ) {
-                    if (text.isEmpty()) {
-                        TextField(value = text, onValueChange = { text = it })
-                    }
-                    // Note: Replace with TextField(value = text, onValueChange = { text = it }) if you want active typing
+                    TextField(
+                        value = text,
+                        onValueChange = { text = it },
+                        modifier = Modifier.fillMaxSize(),
+                        colors = TextFieldDefaults.colors(
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent,
+                            disabledContainerColor = Color.Transparent,
+                            focusedTextColor = Color.White,
+                            unfocusedTextColor = Color.White,
+                            cursorColor = Color.White,
+                            focusedIndicatorColor = Color.Transparent,
+                            unfocusedIndicatorColor = Color.Transparent
+                        )
+                    )
                 }
             }
 
